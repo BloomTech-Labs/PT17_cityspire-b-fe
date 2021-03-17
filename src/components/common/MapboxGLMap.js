@@ -7,6 +7,7 @@ mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 const MapboxGLMap = ({ lat, long }) => {
   const [viewport, setViewport] = useState({
+    //replace with "lat/long variables"
     latitude: lat,
     longitude: long,
     zoom: 11,
