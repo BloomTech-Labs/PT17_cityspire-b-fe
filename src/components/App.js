@@ -44,6 +44,10 @@ const App = () => {
           <UserDashboardPage id={id} />
         </SecureRoute>
 
+        <SecureRoute path="/profile/:id/mypinned" exact>
+          <UserDashboardPage id={id} />
+        </SecureRoute>
+
         <SecureRoute path="/:state/:city" exact>
           <CitySearchResultsPage city={city} state={state} />
         </SecureRoute>
