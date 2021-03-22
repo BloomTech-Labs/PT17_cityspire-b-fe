@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { reducers } from './state/reducers';
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App';
 
-const store = createStore(reducers, applyMiddleware(thunk));
+const store = createStore(
+  reducers,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
   <Router>
