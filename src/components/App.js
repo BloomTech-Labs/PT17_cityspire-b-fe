@@ -13,6 +13,7 @@ import { LoadingComponent } from './common';
 import { CitySearchResultsPage } from './pages/CitySearchResults';
 import { UserDashboardPage } from './pages/UserDashboard';
 import { PinnedCityPage } from './pages/PinnedCity';
+import { PinnedCitiesPage } from './pages/PinnedCities';
 
 const App = () => {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
@@ -44,8 +45,8 @@ const App = () => {
           <UserDashboardPage id={id} />
         </SecureRoute>
 
-        <SecureRoute path="/profile/:id/mypinned" exact>
-          <UserDashboardPage id={id} />
+        <SecureRoute path="/profile/:id/pinnedcities" exact>
+          <PinnedCitiesPage id={id} />
         </SecureRoute>
 
         <SecureRoute path="/:state/:city" exact>
