@@ -8,8 +8,6 @@ const ColStyle = {
   display: 'flex',
   justifyContent: 'center',
   textAlign: 'center',
-  position: 'relative',
-  top: '20rem',
   zIndex: 99999,
 };
 
@@ -25,7 +23,7 @@ const SearchForm = ({ fetchCityData }) => {
 
   const [searchValue, setSearchValue] = useState('');
 
-  // Split search value right by the common
+  // Split search value right by the comma
   const splitSearchValue = searchValue.toLowerCase().split(', ');
 
   // Set the split value to city and state
@@ -60,21 +58,6 @@ const SearchForm = ({ fetchCityData }) => {
             value={searchValue.city}
             onChange={handleChange}
           />
-          <p
-            style={{
-              fontSize: '2.5rem',
-              fontFamily: 'Hachi Maru Pop, cursive',
-              fontStyle: 'italic',
-              marginTop: '-8%',
-              backgroundColor: '#5946B2',
-              paddingTop: '2rem',
-              color: 'white',
-              border: '2px outset lightgrey',
-              textShadow: '1px 1px 10px #FFCC33',
-            }}
-          >
-            Search Your Desires
-          </p>
         </div>
       </Col>
     </Row>

@@ -5,6 +5,7 @@ import {
   SmileTwoTone,
   HomeTwoTone,
 } from '@ant-design/icons';
+import { SearchForm } from '../../common';
 
 const StatisticStyle = {
   fontSize: '1.25rem',
@@ -20,6 +21,7 @@ const RenderUserDashboard = ({
   return (
     <>
       <h1>Hey, {name}! Welcome to your Dashboard!</h1>
+      <SearchForm />
       {savedCities.length === 0 ? (
         <Empty style={{ padding: '24vw 0' }} description="No pinned cities." />
       ) : (
