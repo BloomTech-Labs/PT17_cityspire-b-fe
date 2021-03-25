@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { fetchSavedCity, unpinCity } from '../../../state/actions';
-
 import { Spin, notification } from 'antd';
 import { Header, Footer } from '../../common/';
 import RenderUserDashboard from './RenderUserDashboard';
@@ -21,15 +21,39 @@ const UserDashboardContainer = ({
   unpinCity,
   isFetching,
 }) => {
+  const { authService } = useOktaAuth();
+  const [userInfo, setUserInfo] = useState(null);
+  // eslint-disable-next-line
+  const [memoAuthService] = useMemo(() => [authService], []);
   const { push } = useHistory();
-
   const [cityAndState, setCityAndState] = useState(
     JSON.parse(localStorage.getItem('cityAndState'))
   );
+  const [userName, setUserName] = useState();
+
+  console.log('userName: ', userName);
 
   useEffect(() => {
     fetchSavedCity(localStorage.getItem('token'));
-  }, [fetchSavedCity]);
+    let isSubscribed = true;
+
+    memoAuthService
+      .getUser()
+      .then(info => {
+        // if user is authenticated we can use the authService to snag some user info.
+        // isSubscribed is a boolean toggle that we're using to clean up our useEffect.
+        if (isSubscribed) {
+          setUserInfo(info);
+          setUserName(info.name);
+          localStorage.setItem('token', info.sub);
+        }
+      })
+      .catch(err => {
+        isSubscribed = false;
+        return setUserInfo(null);
+      });
+    return () => (isSubscribed = false);
+  }, [fetchSavedCity, memoAuthService]);
 
   const deleteNotification = () => {
     notification.open({
@@ -64,6 +88,7 @@ const UserDashboardContainer = ({
           handleRemoveCity={handleRemoveCity}
           handleOnCityClick={handleOnCityClick}
           id={localStorage.getItem('token')}
+          name={userName}
         />
       )}
       <Footer />

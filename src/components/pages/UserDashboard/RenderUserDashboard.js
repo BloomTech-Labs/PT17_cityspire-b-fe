@@ -15,9 +15,11 @@ const RenderUserDashboard = ({
   savedCities,
   handleRemoveCity,
   handleOnCityClick,
+  name,
 }) => {
   return (
     <>
+      <h1>Hey, {name}! Welcome to your Dashboard!</h1>
       {savedCities.length === 0 ? (
         <Empty style={{ padding: '24vw 0' }} description="No pinned cities." />
       ) : (
