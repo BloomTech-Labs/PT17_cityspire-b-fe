@@ -20,10 +20,12 @@ const RenderUserDashboard = ({
 }) => {
   return (
     <>
-      <h1>Hey, {name}! Welcome to your Dashboard!</h1>
+      <h1 style={{ textAlign: 'center', margin: '4.8vw 0 6.4vw 0' }}>
+        Hey, {name}! Welcome to your Dashboard!
+      </h1>
       <SearchForm />
       {savedCities.length === 0 ? (
-        <Empty style={{ padding: '24vw 0' }} description="No pinned cities." />
+        <Empty style={{ padding: '10vw 0' }} description="No pinned cities." />
       ) : (
         Object.keys(savedCities).map((key, i) => (
           <Row
