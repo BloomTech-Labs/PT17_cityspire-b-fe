@@ -12,6 +12,7 @@ import city5 from '../../../assets/imgs/city5.png';
 import { Layout, Image, Space, Carousel } from 'antd';
 
 import { Header, Footer, SearchForm } from '../../common';
+import TopCities from '../../common/TopCities';
 
 const { Content } = Layout;
 
@@ -158,6 +159,8 @@ function RenderHomePage() {
         src={citylife}
         style={{ width: '100%', height: '100px' }}
       />
+
+      <TopCities />
       <Footer />
     </Layout>
   );

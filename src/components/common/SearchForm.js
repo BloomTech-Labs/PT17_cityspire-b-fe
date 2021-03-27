@@ -55,7 +55,7 @@ const SearchForm = ({ fetchCityData }) => {
         <a href="">San Francisco, CA</a>
       </Menu.Item>
       <Menu.Item key="1">
-        <a href="">Honolulu, HI</a>
+        <a href="/${cityAndState.state}/${cityAndState.city}">Honolulu, HI</a>
       </Menu.Item>
     </Menu>
   );
@@ -74,7 +74,13 @@ const SearchForm = ({ fetchCityData }) => {
             onChange={handleChange}
           /> */}
           <Dropdown overlay={menu} trigger={['click']}>
-            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+            <a
+              className="ant-dropdown-link"
+              onClick={
+                e => e.preventDefault()
+                // onSubmit()
+              }
+            >
               Click me to search a city and state <DownOutlined />
             </a>
           </Dropdown>
