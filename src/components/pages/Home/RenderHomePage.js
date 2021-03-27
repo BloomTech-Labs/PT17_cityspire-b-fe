@@ -59,6 +59,7 @@ function RenderHomePage() {
           backgroundColor: '#FED85D',
           border: '2px dotted #5946B2',
           textShadow: '1px 1px 10px #5946B2',
+          marginBottom: '3%',
         }}
       >
         Aspire to your dream home with <br />{' '}
