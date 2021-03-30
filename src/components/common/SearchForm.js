@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { fetchCityData } from '../../state/actions';
 import { useHistory } from 'react-router-dom';
 import { Row, Col, Input } from 'antd';
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 const ColStyle = {
   display: 'flex',
@@ -45,11 +47,22 @@ const SearchForm = ({ fetchCityData }) => {
     setSearchValue('');
   };
 
+  const menu = (
+    <Menu>
+      <Menu.Item key="0">
+        <a href="">San Francisco, CA</a>
+      </Menu.Item>
+      <Menu.Item key="1">
+        <a href="/${cityAndState.state}/${cityAndState.city}">Honolulu, HI</a>
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <Row>
       <Col span={12} offset={6} style={ColStyle}>
         <div>
-          <Search
+          {/* <Search
             placeholder="Ex. New York, NY"
             allowClear
             onSearch={() => onSubmit()}
@@ -57,7 +70,33 @@ const SearchForm = ({ fetchCityData }) => {
             style={SearchStyle}
             value={searchValue.city}
             onChange={handleChange}
-          />
+          /> */}
+          <Dropdown overlay={menu} trigger={['click']}>
+            <a
+              className="ant-dropdown-link"
+              onClick={
+                e => e.preventDefault()
+                // onSubmit()
+              }
+            >
+              Click me to search a city and state <DownOutlined />
+            </a>
+          </Dropdown>
+          {/* <p
+            style={{
+              fontSize: '2.5rem',
+              fontFamily: 'Hachi Maru Pop, cursive',
+              fontStyle: 'italic',
+              marginTop: '-8%',
+              backgroundColor: '#5946B2',
+              paddingTop: '2rem',
+              color: 'white',
+              border: '2px outset lightgrey',
+              textShadow: '1px 1px 10px #FFCC33',
+            }}
+          >
+            Search Your Desires
+          </p> */}
         </div>
       </Col>
     </Row>

@@ -12,6 +12,7 @@ import city5 from '../../../assets/imgs/city5.png';
 import { Layout, Image, Space, Carousel } from 'antd';
 
 import { Header, Footer, SearchForm } from '../../common';
+import TopCities from '../../common/TopCities';
 
 const { Content } = Layout;
 
@@ -59,6 +60,7 @@ function RenderHomePage() {
           backgroundColor: '#FED85D',
           border: '2px dotted #5946B2',
           textShadow: '1px 1px 10px #5946B2',
+          marginBottom: '3%',
         }}
       >
         Aspire to your dream home with <br />{' '}
@@ -157,6 +159,8 @@ function RenderHomePage() {
         src={citylife}
         style={{ width: '100%', height: '100px' }}
       />
+
+      <TopCities />
       <Footer />
     </Layout>
   );
