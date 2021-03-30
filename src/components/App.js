@@ -13,6 +13,7 @@ import { LoadingComponent } from './common';
 import { CitySearchResultsPage } from './pages/CitySearchResults';
 import { UserDashboardPage } from './pages/UserDashboard';
 import { PinnedCityPage } from './pages/PinnedCity';
+import { PinnedCitiesPage } from './pages/PinnedCities';
 
 const App = () => {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
@@ -28,33 +29,39 @@ const App = () => {
   const { id, city, state } = useParams();
 
   return (
-    <Security {...config} onAuthRequired={authHandler}>
-      <Switch>
-        <Route path="/login" component={LoginPage} />
-        <Route path="/implicit/callback" component={LoginCallback} />
+    <div style={{ backgroundColor: '#E1EAFF' }}>
+      <Security {...config} onAuthRequired={authHandler}>
+        <Switch>
+          <Route path="/login" component={LoginPage} />
+          <Route path="/implicit/callback" component={LoginCallback} />
 
-        {/* any of the routes you need secured should be registered as SecureRoutes */}
-        <SecureRoute
-          path="/"
-          exact
-          component={() => <HomePage LoadingComponent={LoadingComponent} />}
-        />
+          {/* any of the routes you need secured should be registered as SecureRoutes */}
+          <SecureRoute
+            path="/"
+            exact
+            component={() => <HomePage LoadingComponent={LoadingComponent} />}
+          />
 
-        <SecureRoute path="/profile/:id/dashboard" exact>
-          <UserDashboardPage id={id} />
-        </SecureRoute>
+          <SecureRoute path="/profile/:id/dashboard" exact>
+            <UserDashboardPage id={id} />
+          </SecureRoute>
 
-        <SecureRoute path="/:state/:city" exact>
-          <CitySearchResultsPage city={city} state={state} />
-        </SecureRoute>
+          <SecureRoute path="/profile/:id/pinnedcities" exact>
+            <PinnedCitiesPage id={id} />
+          </SecureRoute>
 
-        <SecureRoute path="/pinned/:state/:city" exact>
-          <PinnedCityPage city={city} state={state} />
-        </SecureRoute>
+          <SecureRoute path="/:state/:city" exact>
+            <CitySearchResultsPage city={city} state={state} />
+          </SecureRoute>
 
-        <Route component={NotFoundPage} />
-      </Switch>
-    </Security>
+          <SecureRoute path="/pinned/:state/:city" exact>
+            <PinnedCityPage city={city} state={state} />
+          </SecureRoute>
+
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Security>
+    </div>
   );
 };
 

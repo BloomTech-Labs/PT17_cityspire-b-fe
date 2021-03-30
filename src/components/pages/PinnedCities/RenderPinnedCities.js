@@ -5,27 +5,21 @@ import {
   SmileTwoTone,
   HomeTwoTone,
 } from '@ant-design/icons';
-import { SearchForm } from '../../common';
 
 const StatisticStyle = {
   fontSize: '1.25rem',
   marginBottom: '1rem',
 };
 
-const RenderUserDashboard = ({
+const RenderPinnedCities = ({
   savedCities,
   handleRemoveCity,
   handleOnCityClick,
-  name,
 }) => {
   return (
     <>
-      <h1 style={{ textAlign: 'center', margin: '4.8vw 0 6.4vw 0' }}>
-        Hey, {name}! Welcome to your Dashboard!
-      </h1>
-      <SearchForm />
       {savedCities.length === 0 ? (
-        <Empty style={{ padding: '10vw 0' }} description="No pinned cities." />
+        <Empty style={{ padding: '24vw 0' }} description="No pinned cities." />
       ) : (
         Object.keys(savedCities).map((key, i) => (
           <Row
@@ -101,4 +95,4 @@ const RenderUserDashboard = ({
   );
 };
 
-export default RenderUserDashboard;
+export default RenderPinnedCities;

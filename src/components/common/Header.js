@@ -53,13 +53,19 @@ const Header = () => {
     return () => (isSubscribed = false);
   }, [memoAuthService]);
 
-  const handleOnClick = id => {
+  const handleDashboardClick = id => {
     push(`/profile/${id}/dashboard`);
+  };
+  const handlePinnedCityClick = id => {
+    push(`/profile/${id}/pinnedcities`);
   };
 
   const menu = (
     <Menu>
-      <Menu.Item key="0" onClick={() => handleOnClick(userInfo.sub)}>
+      <Menu.Item key="0" onClick={() => handleDashboardClick(userInfo.sub)}>
+        Dashboard
+      </Menu.Item>
+      <Menu.Item key="1" onClick={() => handlePinnedCityClick(userInfo.sub)}>
         Pinned Cities
       </Menu.Item>
     </Menu>

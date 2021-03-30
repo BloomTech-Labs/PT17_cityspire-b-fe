@@ -10,8 +10,6 @@ const ColStyle = {
   display: 'flex',
   justifyContent: 'center',
   textAlign: 'center',
-  position: 'relative',
-  top: '20rem',
   zIndex: 99999,
 };
 
@@ -27,7 +25,7 @@ const SearchForm = ({ fetchCityData }) => {
 
   const [searchValue, setSearchValue] = useState('');
 
-  // Split search value right by the common
+  // Split search value right by the comma
   const splitSearchValue = searchValue.toLowerCase().split(', ');
 
   // Set the split value to city and state

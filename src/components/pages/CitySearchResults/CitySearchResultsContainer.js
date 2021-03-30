@@ -65,7 +65,7 @@ const CitySearchResultsContainer = ({
     setCityAndState(localStorage.getItem('cityAndState'));
     push(`/${cityAndState.state}/${cityAndState.city}`);
   };
-
+  console.log('city info', cityAndState);
   return (
     <>
       {isFetching ? (
