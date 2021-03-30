@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 import { configureStore } from '@reduxjs/toolkit';
@@ -14,7 +14,7 @@ import App from './components/App';
 
 const store = configureStore({
   reducer: reducers,
-  composeWithDevlTools: composeWithDevTools(applyMiddleware(thunk))
+  composeWithDevlTools: composeWithDevTools(applyMiddleware(thunk)),
 });
 
 console.log('store', store);
