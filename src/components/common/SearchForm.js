@@ -62,15 +62,15 @@ const SearchForm = ({ fetchCityData }) => {
     <Row>
       <Col span={12} offset={6} style={ColStyle}>
         <div>
-          {/* <Search
-            placeholder="Ex. New York, NY"
+          <Search
+            placeholder="Seach City"
             allowClear
             onSearch={() => onSubmit()}
             size="large"
             style={SearchStyle}
             value={searchValue.city}
             onChange={handleChange}
-          /> */}
+          />
           <Dropdown overlay={menu} trigger={['click']}>
             <a
               className="ant-dropdown-link"
@@ -78,25 +78,16 @@ const SearchForm = ({ fetchCityData }) => {
                 e => e.preventDefault()
                 // onSubmit()
               }
+              style={{
+                backgroundColor: '#FFF',
+                padding: '4px 16px',
+                color: '#000',
+                borderRadius: '4px',
+              }}
             >
-              Click me to search a city and state <DownOutlined />
+              Search a city and state <DownOutlined />
             </a>
           </Dropdown>
-          {/* <p
-            style={{
-              fontSize: '2.5rem',
-              fontFamily: 'Hachi Maru Pop, cursive',
-              fontStyle: 'italic',
-              marginTop: '-8%',
-              backgroundColor: '#5946B2',
-              paddingTop: '2rem',
-              color: 'white',
-              border: '2px outset lightgrey',
-              textShadow: '1px 1px 10px #FFCC33',
-            }}
-          >
-            Search Your Desires
-          </p> */}
         </div>
       </Col>
     </Row>
