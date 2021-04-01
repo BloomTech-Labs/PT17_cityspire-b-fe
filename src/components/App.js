@@ -15,7 +15,7 @@ import { UserDashboardPage } from './pages/UserDashboard';
 import { PinnedCityPage } from './pages/PinnedCity';
 import { PinnedCitiesPage } from './pages/PinnedCities';
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 const App = () => {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
@@ -67,10 +67,10 @@ const App = () => {
   );
 };
 
-const mapstateToProps = (state) {
+const mapstateToProps = state => {
   return {
-    searchValue: state.searchValue
-  }
-}
+    searchValue: state.searchValue,
+  };
+};
 
 export default connect(mapStateToProps, {})(App);
