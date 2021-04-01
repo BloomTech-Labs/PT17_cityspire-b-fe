@@ -1,34 +1,40 @@
-import {
-  FETCHING_CITY_START,
-  FETCHING_CITY_SUCCESS,
-  FETCHING_CITY_ERROR,
-} from '../actions';
+import * as actions from '../actions';
 
 const initialState = {
-  isFetching: false,
+  searchValue: '',
+  user: '',
+  isFetching: '',
   error: '',
-  city: {},
 };
+
 export const cityDataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCHING_CITY_START:
+    case actions.FETCHING_CITY_START:
+      console.log('fetchCityData start: reducer');
+
       return {
         ...state,
+        searchValue: action.payload,
         isFetching: true,
       };
-    case FETCHING_CITY_SUCCESS:
+
+    case actions.FETCHING_CITY_SUCCESS:
+      console.log('fetchCityData successful: reducer');
+
       return {
         ...state,
+        searchValue: action.payload,
         isFetching: false,
-        city: action.payload,
-        error: '',
       };
-    case FETCHING_CITY_ERROR:
-      return {
-        ...state,
-        isFetching: false,
-        error: action.payload,
-      };
+
+    // case actions.FETCHING_CITY_ERROR:
+
+    //   return {
+    //     ...state,
+    //     isFetching: false,
+    //     error: action.payload,
+    //   };
+
     default:
       return state;
   }
