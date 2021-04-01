@@ -67,7 +67,7 @@ const App = () => {
   );
 };
 
-const mapstateToProps = state => {
+const mapStateToProps = state => {
   return {
     searchValue: state.searchValue,
   };
