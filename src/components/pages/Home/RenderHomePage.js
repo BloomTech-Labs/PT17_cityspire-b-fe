@@ -47,7 +47,7 @@ function RenderHomePage() {
       >
         {' '}
       </Space>
-      <h1
+      {/* <h1
         style={{
           fontSize: '3rem',
           fontFamily: 'Hachi Maru Pop, cursive',
@@ -73,12 +73,12 @@ function RenderHomePage() {
         >
           CitySpire
         </strong>
-      </h1>
-      <Content
+      </h1> */}
+      {/* <Content
         style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
-      >
-        <SearchForm />
-      </Content>
+      > */}
+      <SearchForm />
+      {/* </Content> */}
 
       <Space size="large" align="center">
         <p

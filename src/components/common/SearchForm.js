@@ -5,7 +5,7 @@ import { fetchCityData } from '../../state/actions';
 import { Row, Col, Input } from 'antd';
 // import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { Select } from 'antd';
+import { Form, Select, Button } from 'antd';
 
 const { Option } = Select;
 
@@ -18,7 +18,7 @@ const ColStyle = {
   display: 'flex',
   justifyContent: 'center',
   textAlign: 'center',
-  zIndex: 99999,
+  // zIndex: 99999,
 };
 
 const SearchStyle = {
@@ -44,13 +44,13 @@ const SearchForm = props => {
 
   // const { Search } = Input;
 
-  const handleChange = e => {
-    e.persist();
-    setNewSearchValue({
-      ...newSearchValue,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChange = e => {
+  //   e.persist();
+  //   setNewSearchValue({
+  //     ...newSearchValue,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -70,6 +70,38 @@ const SearchForm = props => {
   //     </Menu.Item>
   //   </Menu>
   // );
+
+  const onCityChange = value => {
+    console.log(`selected ${value}`);
+    // e.persist();
+    setNewSearchValue({
+      ...newSearchValue,
+      city: value,
+    });
+  };
+
+  const onStateChange = value => {
+    console.log(`selected ${value}`);
+    // e.persist();
+    setNewSearchValue({
+      ...newSearchValue,
+      state: value,
+    });
+  };
+
+  function onBlur() {
+    console.log('blur');
+  }
+
+  function onFocus() {
+    console.log('focus');
+  }
+
+  // const onSearch = value => {
+  //   console.log('search:', value);
+  //   // e.preventDefault();
+  //   props.fetchCityData(newSearchValue, props.history);
+  // };
 
   return (
     <Row>
@@ -119,7 +151,10 @@ const SearchForm = props => {
               showSearch
               style={SearchStyle}
               placeholder="Select a city"
-              onChange={handleChange}
+              onChange={onCityChange}
+              onBlur={onBlur}
+              // onSearch={onSearch}
+              onFocus={onFocus}
               value={newSearchValue.city}
             >
               <Option value="New York">New York</Option>
@@ -135,13 +170,18 @@ const SearchForm = props => {
               showSearch
               style={SearchStyle}
               placeholder="Select a state"
-              onChange={handleChange}
+              onChange={onStateChange}
+              onBlur={onBlur}
+              // onSearch={onSearch}
+              onFocus={onFocus}
               value={newSearchValue.state}
             >
               <Option value="NY">NY</Option>
               <Option value="HI">HI</Option>
               <Option value="WA">WA</Option>
             </Select>
+
+            <button type="submit">Search</button>
           </form>
         </div>
       </Col>

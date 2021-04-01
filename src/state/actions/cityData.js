@@ -7,7 +7,7 @@ export const FETCHING_CITY_SUCCESS = 'FETCHING_CITY_SUCCESS';
 export const fetchCityData = (cityInfo, history) => dispatch => {
   dispatch({ type: FETCHING_CITY_START });
 
-  axios()
+  axios
     .post('https://localhost:8000/api/get_data', cityInfo)
 
     .then(res => {
@@ -18,7 +18,7 @@ export const fetchCityData = (cityInfo, history) => dispatch => {
         payload: res.data,
       });
 
-      history.push('/${res.data.state}/${res.data.city}');
+      history.push('/${res.data.city.state}/${res.data.city.city}');
     })
 
     .catch(err => {
