@@ -62,15 +62,6 @@ const SearchForm = ({ fetchCityData }) => {
     <Row>
       <Col span={12} offset={6} style={ColStyle}>
         <div>
-          <Search
-            placeholder="Seach City"
-            allowClear
-            onSearch={() => onSubmit()}
-            size="large"
-            style={SearchStyle}
-            value={searchValue.city}
-            onChange={handleChange}
-          />
           <Dropdown overlay={menu} trigger={['click']}>
             <a
               className="ant-dropdown-link"
