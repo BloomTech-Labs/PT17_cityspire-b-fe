@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchCityData } from '../../state/actions';
 import { useHistory } from 'react-router-dom';
 import { Row, Col, Input } from 'antd';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+
+import topCities from './TopCitiesMockData';
 
 const ColStyle = {
   display: 'flex',
@@ -24,6 +26,10 @@ const SearchForm = ({ fetchCityData }) => {
   const { push } = useHistory();
 
   const [searchValue, setSearchValue] = useState('');
+  const [topCitiesData, setTopCitiesData] = useState([]);
+  useEffect(() => {
+    setTopCitiesData(topCities);
+  }, []);
 
   // Split search value right by the comma
   const splitSearchValue = searchValue.toLowerCase().split(', ');
@@ -36,10 +42,11 @@ const SearchForm = ({ fetchCityData }) => {
 
   const { Search } = Input;
 
-  const handleChange = e => {
-    setSearchValue(e.target.value);
+  const handleChange = value => {
+    setSearchValue(value);
+    console.log(value);
   };
-
+  console.log('searchValue: ', searchValue);
   const onSubmit = () => {
     localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
     fetchCityData(cityAndState);
@@ -49,12 +56,19 @@ const SearchForm = ({ fetchCityData }) => {
 
   const menu = (
     <Menu>
-      <Menu.Item key="0">
-        <a href="">San Francisco, CA</a>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <a href="/${cityAndState.state}/${cityAndState.city}">Honolulu, HI</a>
-      </Menu.Item>
+      {topCities.map(menu => {
+        return (
+          <Menu.Item
+            key={menu.city}
+            onClick={handleChange}
+            value={`${menu.city}, ${menu.state}`}
+          >
+            <p>
+              {menu.city}, {menu.state}
+            </p>
+          </Menu.Item>
+        );
+      })}
     </Menu>
   );
 
@@ -63,12 +77,7 @@ const SearchForm = ({ fetchCityData }) => {
       <Col span={12} offset={6} style={ColStyle}>
         <div>
           <Dropdown overlay={menu} trigger={['click']}>
-            <a
-              className="ant-dropdown-link"
-              onClick={
-                e => e.preventDefault()
-                // onSubmit()
-              }
+            <span
               style={{
                 backgroundColor: '#FFF',
                 padding: '4px 16px',
@@ -77,7 +86,7 @@ const SearchForm = ({ fetchCityData }) => {
               }}
             >
               Search a city and state <DownOutlined />
-            </a>
+            </span>
           </Dropdown>
         </div>
       </Col>
