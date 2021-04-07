@@ -25,7 +25,7 @@ const RenderUserDashboard = ({
       </h1>
       <SearchForm />
       {savedCities.length === 0 ? (
-        <Empty style={{ padding: '10vw 0' }} description="No pinned cities." />
+        <Empty style={{ padding: '14vw 0' }} description="No pinned cities." />
       ) : (
         Object.keys(savedCities).map((key, i) => (
           <Row
