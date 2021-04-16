@@ -29,6 +29,7 @@ function RenderHomePage() {
   return (
     <Layout className="layout">
       <Header />
+<<<<<<< HEAD
       <Image
         className="cities"
         preview={false}
@@ -65,12 +66,55 @@ function RenderHomePage() {
       >
         Aspire to your dream home with <br />{' '}
         <strong
+||||||| merged common ancestors
+      <Image
+        className="cities"
+        preview={false}
+        src={cities}
+        style={{ width: '100%', height: '30vh', marginBottom: '3rem' }}
+      />
+      <Space
+        size="large"
+        align="center"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          margin: '2%',
+          textAlign: 'center',
+        }}
+      >
+        {' '}
+      </Space>
+      <h1
+        style={{
+          fontSize: '3rem',
+          fontFamily: 'Hachi Maru Pop, cursive',
+          marginTop: '-7%',
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          textAlign: 'center',
+          position: 'relative',
+          backgroundColor: '#FED85D',
+          border: '2px dotted #5946B2',
+          textShadow: '1px 1px 10px #5946B2',
+          marginBottom: '3%',
+        }}
+      >
+        Aspire to your dream home with <br />{' '}
+        <strong
+=======
+      <Content style={{ height: '25vh', marginBottom: '10rem' }}>
+        <div
+>>>>>>> 802daa617d87adf6519d115ea0218a53fa6d46eb
           style={{
-            fontSize: '5rem',
-            marginTop: '-2%',
-            textDecoration: 'underline',
+            backgroundImage: `url("${cities}")`,
+            height: '30vh',
+            width: '100%',
+            paddingTop: '4vh',
           }}
         >
+<<<<<<< HEAD
           CitySpire
         </strong>
       </h1> */}
@@ -79,6 +123,29 @@ function RenderHomePage() {
       > */}
       <SearchForm />
       {/* </Content> */}
+||||||| merged common ancestors
+          CitySpire
+        </strong>
+      </h1>
+      <Content
+        style={{ height: '85vh', marginTop: '-22rem', marginBottom: '0.03rem' }}
+      >
+        <SearchForm />
+      </Content>
+=======
+          <h1
+            style={{
+              color: 'white',
+              fontSize: '2.4rem',
+              textAlign: 'center',
+            }}
+          >
+            Search Your Dream City
+          </h1>
+          <SearchForm />
+        </div>
+      </Content>
+>>>>>>> 802daa617d87adf6519d115ea0218a53fa6d46eb
 
       <Space size="large" align="center">
         <p

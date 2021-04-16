@@ -107,82 +107,23 @@ const SearchForm = props => {
     <Row>
       <Col span={12} offset={6} style={ColStyle}>
         <div>
-          <form onSubmit={onSubmit}>
-            {/* <Search
-            placeholder="Ex. New York, NY"
-            allowClear
-            onSearch={() => onSubmit()}
-            size="large"
-            style={SearchStyle}
-            value={searchValue.city}
-            onChange={handleChange}
-          /> */}
-            {/* <Dropdown overlay={menu} trigger={['click']}>
+          <Dropdown overlay={menu} trigger={['click']}>
             <a
               className="ant-dropdown-link"
               onClick={
                 e => e.preventDefault()
                 // onSubmit()
               }
+              style={{
+                backgroundColor: '#FFF',
+                padding: '4px 16px',
+                color: '#000',
+                borderRadius: '4px',
+              }}
             >
-              Click me to search a city and state <DownOutlined />
+              Search a city and state <DownOutlined />
             </a>
-          </Dropdown> */}
-            {/* <p
-            style={{
-              fontSize: '2.5rem',
-              fontFamily: 'Hachi Maru Pop, cursive',
-              fontStyle: 'italic',
-              marginTop: '-8%',
-              backgroundColor: '#5946B2',
-              paddingTop: '2rem',
-              color: 'white',
-              border: '2px outset lightgrey',
-              textShadow: '1px 1px 10px #FFCC33',
-            }}
-          >
-            Search Your Desires
-          </p> */}
-            <label htmlFor="city_search">City:</label>
-            <Select
-              id="city_search"
-              name="city_search"
-              type="text"
-              showSearch
-              style={SearchStyle}
-              placeholder="Select a city"
-              onChange={onCityChange}
-              onBlur={onBlur}
-              // onSearch={onSearch}
-              onFocus={onFocus}
-              value={newSearchValue.city}
-            >
-              <Option value="New York">New York</Option>
-              <Option value="Honolulu">Honolulu</Option>
-              <Option value="Seattle">Seattle</Option>
-            </Select>
-
-            <label htmlFor="state_search">State:</label>
-            <Select
-              id="state_search"
-              name="state_search"
-              type="text"
-              showSearch
-              style={SearchStyle}
-              placeholder="Select a state"
-              onChange={onStateChange}
-              onBlur={onBlur}
-              // onSearch={onSearch}
-              onFocus={onFocus}
-              value={newSearchValue.state}
-            >
-              <Option value="NY">NY</Option>
-              <Option value="HI">HI</Option>
-              <Option value="WA">WA</Option>
-            </Select>
-
-            <button type="submit">Search</button>
-          </form>
+          </Dropdown>
         </div>
       </Col>
     </Row>
