@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchCityData } from '../../state/actions';
 // import { useHistory } from 'react-router-dom';
 import { Row, Col, Input } from 'antd';
-// import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { Form, Select, Button } from 'antd';
 
@@ -60,16 +60,16 @@ const SearchForm = props => {
     // setSearchValue('');
   };
 
-  // const menu = (
-  //   <Menu>
-  //     <Menu.Item key="0">
-  //       <a href="">San Francisco, CA</a>
-  //     </Menu.Item>
-  //     <Menu.Item key="1">
-  //       <a href="/${cityAndState.state}/${cityAndState.city}">Honolulu, HI</a>
-  //     </Menu.Item>
-  //   </Menu>
-  // );
+  const menu = (
+    <Menu>
+      <Menu.Item key="0">
+        <a href="">San Francisco, CA</a>
+      </Menu.Item>
+      <Menu.Item key="1">
+        <a href="/${cityAndState.state}/${cityAndState.city}">Honolulu, HI</a>
+      </Menu.Item>
+    </Menu>
+  );
 
   const onCityChange = value => {
     console.log(`selected ${value}`);
