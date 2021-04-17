@@ -17,6 +17,7 @@ const Footer = () => {
         width: '100%',
         bottom: '0',
         fontFamily: 'TrebuchetMS',
+        color: 'teal',
       }}
     >
       Cityspire ©{date} Created by Labspt17-Cityspire-B

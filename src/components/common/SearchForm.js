@@ -18,7 +18,6 @@ const ColStyle = {
   display: 'flex',
   justifyContent: 'center',
   textAlign: 'center',
-  // zIndex: 99999,
 };
 
 const SearchStyle = {
@@ -63,10 +62,17 @@ const SearchForm = props => {
   const menu = (
     <Menu>
       <Menu.Item key="0">
-        <a href="">San Francisco, CA</a>
+        <a href="" style={{ color: '#104573' }}>
+          San Francisco, CA
+        </a>
       </Menu.Item>
       <Menu.Item key="1">
-        <a href="/${cityAndState.state}/${cityAndState.city}">Honolulu, HI</a>
+        <a
+          href="/${cityAndState.state}/${cityAndState.city}"
+          style={{ color: '#104573' }}
+        >
+          Honolulu, HI
+        </a>
       </Menu.Item>
     </Menu>
   );
@@ -117,8 +123,9 @@ const SearchForm = props => {
               style={{
                 backgroundColor: '#FFF',
                 padding: '4px 16px',
-                color: '#000',
+                color: '#104573',
                 borderRadius: '4px',
+                fontFamily: 'TrebuchetMS',
               }}
             >
               Search a city and state <DownOutlined />

@@ -24,6 +24,7 @@ const HeaderStyle = {
   borderBottom: 'solid thin #eee',
   backgroundColor: 'white',
   fontFamily: 'TrebuchetMS',
+  color: 'teal',
 };
 
 const Header = () => {
@@ -63,10 +64,18 @@ const Header = () => {
 
   const menu = (
     <Menu>
-      <Menu.Item key="0" onClick={() => handleDashboardClick(userInfo.sub)}>
+      <Menu.Item
+        key="0"
+        onClick={() => handleDashboardClick(userInfo.sub)}
+        style={{ color: 'teal' }}
+      >
         Dashboard
       </Menu.Item>
-      <Menu.Item key="1" onClick={() => handlePinnedCityClick(userInfo.sub)}>
+      <Menu.Item
+        key="1"
+        onClick={() => handlePinnedCityClick(userInfo.sub)}
+        style={{ color: 'teal' }}
+      >
         Pinned Cities
       </Menu.Item>
     </Menu>
@@ -91,7 +100,7 @@ const Header = () => {
               <Space
                 size="small"
                 onClick={e => e.preventDefault()}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', color: 'teal' }}
               >
                 <Avatar size="small" icon={<UserOutlined />} />
                 {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
@@ -106,7 +115,7 @@ const Header = () => {
             {/* <Divider type="vertical" /> */}
             <Button
               onClick={() => authService.logout()}
-              style={{ color: '#104573' }}
+              style={{ color: 'teal' }}
             >
               Logout
             </Button>
