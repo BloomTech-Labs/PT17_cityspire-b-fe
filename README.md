@@ -10,6 +10,12 @@ The "Learn more about US States" link on the home page links to a deployed netli
 
 ## Contributors
 
+|                                         [Kyla Oyamot](https://github.com/Koyamot)                                          |                                       [Angelyn Liem](https://github.com/angelynaliem)                                        |
+| :------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: |
+|       [<img src="https://avatars.githubusercontent.com/u/47949273?v=4" width = "200" />](https://github.com/Koyamot)       |      [<img src="https://avatars.githubusercontent.com/u/5790717?v=4" width = "200" />](https://github.com/angelynaliem)      |  |
+|                    [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Koyamot)                    |                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/angelynaliem)                   |  |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kylaoyamot) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/angelynaliem) |  |
+
 |                                                          [Shomari Roberts](https://github.com/slroberts)                                                          |                                                         [Britney Parkerson](https://github.com/BritneyParkerson)                                                         |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [<img src="https://avatars.githubusercontent.com/u/32742307?s=460&u=5b16768fa895028ee408b983bf8c71b1c29bda00&v=4" width = "200" />](https://github.com/slroberts) | [<img src="https://avatars.githubusercontent.com/u/57121314?s=460&u=40516072562c04793938e17857617d2502d70594&v=4" width = "200" />](https://github.com/BritneyParkerson) |  |
