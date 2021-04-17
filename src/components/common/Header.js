@@ -96,13 +96,13 @@ const Header = () => {
                 {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
               </Space>
             </Dropdown>
-            <Divider type="vertical" />
-            <a href="/" style={{ color: 'grey' }}>
+            {/* <Divider type="vertical" /> */}
+            {/* <a href="/" style={{ color: 'grey' }}>
               <SearchOutlined
                 style={{ cursor: 'pointer', fontSize: '1.15rem' }}
               />
-            </a>
-            <Divider type="vertical" />
+            </a> */}
+            {/* <Divider type="vertical" /> */}
             <Button onClick={() => authService.logout()}>Logout</Button>
           </Space>
         </Row>
