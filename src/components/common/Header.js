@@ -23,6 +23,7 @@ const HeaderStyle = {
   padding: '1.25rem 5vw',
   borderBottom: 'solid thin #eee',
   backgroundColor: 'white',
+  fontFamily: 'TrebuchetMS',
 };
 
 const Header = () => {
@@ -103,7 +104,12 @@ const Header = () => {
               />
             </a> */}
             {/* <Divider type="vertical" /> */}
-            <Button onClick={() => authService.logout()}>Logout</Button>
+            <Button
+              onClick={() => authService.logout()}
+              style={{ color: '#104573' }}
+            >
+              Logout
+            </Button>
           </Space>
         </Row>
       </Col>
