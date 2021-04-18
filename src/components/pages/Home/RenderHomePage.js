@@ -9,6 +9,8 @@ import { Layout, Button } from 'antd';
 
 import { Header, Footer, SearchForm } from '../../common';
 
+import mq from '../../../styles/
+
 const { Content } = Layout;
 
 function RenderHomePage() {
@@ -53,6 +55,7 @@ function RenderHomePage() {
           }}
         >
           <Button
+            className={mq.btn}
             href="https://www.nationsonline.org/oneworld/us_states_maps.htm"
             style={{
               fontSize: '1rem',
