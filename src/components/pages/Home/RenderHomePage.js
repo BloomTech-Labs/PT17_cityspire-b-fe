@@ -9,9 +9,17 @@ import { Layout, Button } from 'antd';
 
 import { Header, Footer, SearchForm } from '../../common';
 
+import { useMediaQuery } from 'react-responsive';
+
 const { Content } = Layout;
 
 function RenderHomePage() {
+  const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
+  const isTablet = useMediaQuery({
+    query: '(max-width: 769px)',
+    query: '(min-width: 481px)',
+  });
+
   return (
     <Layout className="layout">
       <Header />
@@ -52,20 +60,38 @@ function RenderHomePage() {
             backgroundSize: 'cover',
           }}
         >
-          <Button
-            href="https://www.nationsonline.org/oneworld/us_states_maps.htm"
-            style={{
-              fontSize: '1rem',
-              background: 'F6F4F3',
-              borderRadius: '4px',
-              color: '#104573',
-              fontFamily: 'TrebuchetMS',
-              width: '19%',
-              margin: 'auto',
-            }}
-          >
-            Learn more about US States
-          </Button>
+          {isMobile && (
+            <Button
+              href="https://www.nationsonline.org/oneworld/us_states_maps.htm"
+              style={{
+                fontSize: '1rem',
+                background: 'F6F4F3',
+                borderRadius: '4px',
+                color: '#104573',
+                fontFamily: 'TrebuchetMS',
+                width: '75%',
+                margin: 'auto',
+              }}
+            >
+              Learn more about US States
+            </Button>
+          )}
+          {isTablet && (
+            <Button
+              href="https://www.nationsonline.org/oneworld/us_states_maps.htm"
+              style={{
+                fontSize: '1rem',
+                background: 'F6F4F3',
+                borderRadius: '4px',
+                color: '#104573',
+                fontFamily: 'TrebuchetMS',
+                width: '50%',
+                margin: 'auto',
+              }}
+            >
+              Learn more about US States
+            </Button>
+          )}
         </div>
       </Content>
 
@@ -82,20 +108,38 @@ function RenderHomePage() {
             display: 'grid',
           }}
         >
-          <Button
-            href="https://www.today.com/money/best-places-live-2020-2021-according-u-s-news-world-t193899"
-            style={{
-              fontSize: '1rem',
-              background: 'F6F4F3',
-              borderRadius: '4px',
-              color: '#104573',
-              fontFamily: 'TrebuchetMS',
-              width: '19%',
-              margin: 'auto',
-            }}
-          >
-            Top cities in 2021
-          </Button>
+          {isMobile && (
+            <Button
+              href="https://www.today.com/money/best-places-live-2020-2021-according-u-s-news-world-t193899"
+              style={{
+                fontSize: '1rem',
+                background: 'F6F4F3',
+                borderRadius: '4px',
+                color: '#104573',
+                fontFamily: 'TrebuchetMS',
+                width: '75%',
+                margin: 'auto',
+              }}
+            >
+              Top cities in 2021
+            </Button>
+          )}
+          {isTablet && (
+            <Button
+              href="https://www.today.com/money/best-places-live-2020-2021-according-u-s-news-world-t193899"
+              style={{
+                fontSize: '1rem',
+                background: 'F6F4F3',
+                borderRadius: '4px',
+                color: '#104573',
+                fontFamily: 'TrebuchetMS',
+                width: '50%',
+                margin: 'auto',
+              }}
+            >
+              Top cities in 2021
+            </Button>
+          )}
         </div>
         <Footer />
       </Content>
