@@ -16,7 +16,6 @@ const { Content } = Layout;
 function RenderHomePage() {
   const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
   const isTablet = useMediaQuery({
-    query: '(max-width: 769px)',
     query: '(min-width: 481px)',
   });
 
@@ -69,7 +68,7 @@ function RenderHomePage() {
                 borderRadius: '4px',
                 color: '#104573',
                 fontFamily: 'TrebuchetMS',
-                width: '75%',
+                width: '50%',
                 margin: 'auto',
               }}
             >
@@ -85,7 +84,7 @@ function RenderHomePage() {
                 borderRadius: '4px',
                 color: '#104573',
                 fontFamily: 'TrebuchetMS',
-                width: '50%',
+                width: '45%',
                 margin: 'auto',
               }}
             >
@@ -117,7 +116,7 @@ function RenderHomePage() {
                 borderRadius: '4px',
                 color: '#104573',
                 fontFamily: 'TrebuchetMS',
-                width: '75%',
+                width: '50%',
                 margin: 'auto',
               }}
             >
@@ -133,7 +132,7 @@ function RenderHomePage() {
                 borderRadius: '4px',
                 color: '#104573',
                 fontFamily: 'TrebuchetMS',
-                width: '50%',
+                width: '45%',
                 margin: 'auto',
               }}
             >

@@ -7,6 +7,8 @@ import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { Form, Select, Button } from 'antd';
 
+// import { useMediaQuery } from 'react-responsive';
+
 const { Option } = Select;
 
 const initialSearchValue = {
@@ -29,6 +31,12 @@ const SearchStyle = {
 
 const SearchForm = props => {
   // const { push } = useHistory();
+
+  // const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
+
+  // const isTablet = useMediaQuery({
+  //   query: '(min-width: 481px)',
+  // });
 
   const [newSearchValue, setNewSearchValue] = useState(initialSearchValue);
 
@@ -122,7 +130,7 @@ const SearchForm = props => {
               }
               style={{
                 backgroundColor: '#FFF',
-                padding: '4px 16px',
+                padding: '8px 32px',
                 color: '#104573',
                 borderRadius: '4px',
                 fontFamily: 'TrebuchetMS',
