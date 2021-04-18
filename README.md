@@ -4,9 +4,7 @@ For steps on how to work with this repository [please see here](https://docs.lab
 
 # cityspire-fe
 
-You can find the deployed project at [g.cityspire.dev](https://g.cityspire.dev/).
-
-The "Learn more about US States" link on the home page links to a deployed netlify project [CitySpire: US States](https://cityspire-states.netlify.app/). The GitHub project for this is: [US-States](https://github.com/BritneyParkerson/US-States) in case anyone wants to continue using it.
+You can find the deployed project at [b.cityspire.dev](https://b.cityspire.dev).
 
 ## Contributors
 
@@ -45,7 +43,7 @@ The "Learn more about US States" link on the home page links to a deployed netli
 
 #### Front end deployed to `AWS Amplify`
 
-#### [Back end](https://github.com/Lambda-School-Labs/LabsPT15-cityspire-g-be) built using:
+#### [Back end](https://github.com/Lambda-School-Labs/LabsPT17-cityspire-b-be) built using:
 
 - NodeJS
 - Express
@@ -55,7 +53,7 @@ The "Learn more about US States" link on the home page links to a deployed netli
 
 #### Documentation
 
-See [Backend Documentation](https://documenter.getpostman.com/view/12494179/TW74jkQq) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/LabsPT17-cityspire-b-be) for details on the backend of our project in README.
 
 ## Other Scripts
 
