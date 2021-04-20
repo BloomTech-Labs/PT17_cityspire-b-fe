@@ -27,7 +27,7 @@ const RenderUserDashboard = ({
       {savedCities.length === 0 ? (
         <Empty style={{ padding: '14vw 0' }} description="No pinned cities." />
       ) : (
-        Object.keys(savedCities).map((key, i) => (
+        Object.keys(savedCities).map(i => (
           <Row
             key={i}
             style={{
@@ -42,12 +42,12 @@ const RenderUserDashboard = ({
               </h2>
             </Col>
 
-            {savedCities[key].map((item, i) => (
+            {savedCities.map((item, i) => (
               <Col sm={24} md={12} lg={8} key={i}>
                 <Card style={{ fontSize: '1.2rem', margin: '1.5vw' }} key={i}>
                   <Row>
                     <Col xs={24}>
-                      {item.city}, {item.state}
+                      {item[0].city}, {item[0].state}
                     </Col>
                     <Col xs={8} sm={8} md={24} lg={12} xl={8}>
                       <Statistic

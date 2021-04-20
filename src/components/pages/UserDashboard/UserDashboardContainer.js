@@ -20,6 +20,8 @@ const UserDashboardContainer = ({
   savedCities,
   unpinCity,
   isFetching,
+  cityName,
+  stateName,
 }) => {
   const { authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
@@ -30,8 +32,6 @@ const UserDashboardContainer = ({
     JSON.parse(localStorage.getItem('cityAndState'))
   );
   const [userName, setUserName] = useState();
-
-  console.log('userName: ', userName);
 
   useEffect(() => {
     fetchSavedCity(localStorage.getItem('token'));
@@ -69,6 +69,7 @@ const UserDashboardContainer = ({
     window.location.reload();
   };
 
+  console.log('Saved Cities ==>', savedCities);
   const handleOnCityClick = cityAndState => {
     localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
     setCityAndState(localStorage.getItem('cityAndState'));

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchCityData } from '../../state/actions';
+import { fetchCityData, fetchAllCities } from '../../state/actions';
+import stateAbv from './ListOfStates';
 import { useHistory } from 'react-router-dom';
-import { Row, Col, Input } from 'antd';
-import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Row, Col, Select, AutoComplete, Button } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 
-import topCities from './TopCitiesMockData';
+const { Option } = Select;
 
 const ColStyle = {
   display: 'flex',
@@ -22,76 +22,91 @@ const SearchStyle = {
   padding: '1rem',
 };
 
-const SearchForm = ({ fetchCityData }) => {
-  const { push } = useHistory();
+const SearchForm = ({ fetchCityData, fetchAllCities, cities, states }) => {
+  const history = useHistory();
 
-  const [searchValue, setSearchValue] = useState('');
-  const [topCitiesData, setTopCitiesData] = useState([]);
+  const [cityValue, setCityValue] = useState('');
+  const [stateValue, setStateValue] = useState('');
+
   useEffect(() => {
-    setTopCitiesData(topCities);
-  }, []);
+    fetchAllCities();
+  }, [fetchAllCities]);
 
-  // Split search value right by the comma
-  const splitSearchValue = searchValue.toLowerCase().split(', ');
+  let uniqueCities = [];
+  cities.forEach(c => {
+    if (!uniqueCities.includes(c)) {
+      uniqueCities.push(c);
+    }
+  });
 
-  // Set the split value to city and state
-  const cityAndState = {
-    city: splitSearchValue[0],
-    state: splitSearchValue[1],
-  };
-
-  const { Search } = Input;
+  console.log('State Value => ', stateValue);
 
   const handleChange = value => {
-    setSearchValue(value);
-    console.log(value);
-  };
-  console.log('searchValue: ', searchValue);
-  const onSubmit = () => {
-    localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
-    fetchCityData(cityAndState);
-    push(`/${cityAndState.state}/${cityAndState.city}`);
-    setSearchValue('');
+    setStateValue(value);
   };
 
-  const menu = (
-    <Menu>
-      {topCities.map(menu => {
-        return (
-          <Menu.Item
-            key={menu.city}
-            onClick={handleChange}
-            value={`${menu.city}, ${menu.state}`}
-          >
-            <p>
-              {menu.city}, {menu.state}
-            </p>
-          </Menu.Item>
-        );
-      })}
-    </Menu>
-  );
+  const inputChange = data => {
+    console.log('input changed!', data);
+    setCityValue(data);
+  };
+
+  const cityInfo = {
+    city: cityValue,
+    state: stateValue,
+  };
+
+  console.log('City Info => ', cityInfo);
+
+  const onSubmit = () => {
+    fetchCityData(cityInfo);
+    history.push(`/${stateValue}/${cityValue}`);
+    setCityValue('');
+  };
+
+  const options = uniqueCities.map(c => {
+    return {
+      value: `${c}`,
+    };
+  });
+
+  const children = stateAbv.map(states => {
+    return <Option key={states}>{states}</Option>;
+  });
 
   return (
     <Row>
       <Col span={12} offset={6} style={ColStyle}>
-        <div>
-          <Dropdown overlay={menu} trigger={['click']}>
-            <span
-              style={{
-                backgroundColor: '#FFF',
-                padding: '4px 16px',
-                color: '#000',
-                borderRadius: '4px',
-              }}
-            >
-              Search a city and state <DownOutlined />
-            </span>
-          </Dropdown>
-        </div>
+        <AutoComplete
+          style={{
+            width: 200,
+            marginRight: 8,
+          }}
+          onChange={inputChange}
+          options={options}
+          placeholder="Type in your city"
+          filterOption={(inputValue, option) =>
+            option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+          }
+        />
+        <Select
+          defaultValue="State"
+          onChange={handleChange}
+          style={{ width: 80, marginRight: 8 }}
+        >
+          {children}
+        </Select>
+        <Button icon={<SearchOutlined />} onClick={onSubmit} />
       </Col>
     </Row>
   );
 };
 
-export default connect(null, { fetchCityData })(SearchForm);
+const mapStateToProps = state => {
+  return {
+    cities: state.cityData.allCities,
+    states: state.cityData.allStates,
+  };
+};
+export default connect(mapStateToProps, { fetchCityData, fetchAllCities })(
+  SearchForm
+);
