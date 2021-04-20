@@ -9,9 +9,12 @@ const initialState = {
   isFetching: false,
   error: '',
   city: {},
+  allCitiesAndStates: {},
+  allCities: [],
+  allStates: [],
 };
 
-describe('cityDate reducer', () => {
+describe('cityData reducer', () => {
   it('should return the initial state', () => {
     expect(cityDataReducer(undefined, {})).toEqual(initialState);
   });
