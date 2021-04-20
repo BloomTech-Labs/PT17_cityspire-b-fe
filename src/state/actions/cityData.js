@@ -18,8 +18,6 @@ export const fetchCityData = cityInfo => {
       const res = await axios
         .post(`${dsApi}api/get_data`, cityInfo)
         .then(res => {
-          console.log('Get City Data =>', res.data);
-
           dispatch({
             type: FETCHING_CITY_SUCCESS,
             payload: res.data,

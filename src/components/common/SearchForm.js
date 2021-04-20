@@ -39,14 +39,11 @@ const SearchForm = ({ fetchCityData, fetchAllCities, cities, states }) => {
     }
   });
 
-  console.log('State Value => ', stateValue);
-
   const handleChange = value => {
     setStateValue(value);
   };
 
   const inputChange = data => {
-    console.log('input changed!', data);
     setCityValue(data);
   };
 
@@ -54,8 +51,6 @@ const SearchForm = ({ fetchCityData, fetchAllCities, cities, states }) => {
     city: cityValue,
     state: stateValue,
   };
-
-  console.log('City Info => ', cityInfo);
 
   const onSubmit = () => {
     fetchCityData(cityInfo);

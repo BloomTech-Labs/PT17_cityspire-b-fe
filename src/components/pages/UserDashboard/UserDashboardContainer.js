@@ -69,7 +69,6 @@ const UserDashboardContainer = ({
     window.location.reload();
   };
 
-  console.log('Saved Cities ==>', savedCities);
   const handleOnCityClick = cityAndState => {
     localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
     setCityAndState(localStorage.getItem('cityAndState'));
