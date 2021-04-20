@@ -9,11 +9,15 @@ import { Layout, Button } from 'antd';
 
 import { Header, Footer, SearchForm } from '../../common';
 
+//Added new dependency for simpler media query implementation
+
 import { useMediaQuery } from 'react-responsive';
 
 const { Content } = Layout;
 
 function RenderHomePage() {
+  // Declared media queries mobile and tablet below.
+
   const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
   const isTablet = useMediaQuery({
     query: '(min-width: 481px)',
