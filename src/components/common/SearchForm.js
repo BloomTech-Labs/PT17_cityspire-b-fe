@@ -12,6 +12,7 @@ const ColStyle = {
   display: 'flex',
   justifyContent: 'center',
   textAlign: 'center',
+  zIndex: 99999,
 };
 
 const SearchStyle = {
@@ -67,38 +68,6 @@ const SearchForm = ({ fetchCityData, fetchAllCities, cities, states }) => {
     return <Option key={states}>{states}</Option>;
   });
 
-  const onCityChange = value => {
-    console.log(`selected ${value}`);
-    // e.persist();
-    setNewSearchValue({
-      ...newSearchValue,
-      city: value,
-    });
-  };
-
-  const onStateChange = value => {
-    console.log(`selected ${value}`);
-    // e.persist();
-    setNewSearchValue({
-      ...newSearchValue,
-      state: value,
-    });
-  };
-
-  function onBlur() {
-    console.log('blur');
-  }
-
-  function onFocus() {
-    console.log('focus');
-  }
-
-  // const onSearch = value => {
-  //   console.log('search:', value);
-  //   // e.preventDefault();
-  //   props.fetchCityData(newSearchValue, props.history);
-  // };
-
   return (
     <Row>
       <Col span={12} offset={6} style={ColStyle}>
@@ -117,7 +86,7 @@ const SearchForm = ({ fetchCityData, fetchAllCities, cities, states }) => {
         <Select
           defaultValue="State"
           onChange={handleChange}
-          style={{ width: 80, marginRight: 8, fontFamily: 'TrebuchetMS', color: '#104573' }}
+          style={{ width: 80, marginRight: 8 }}
         >
           {children}
         </Select>

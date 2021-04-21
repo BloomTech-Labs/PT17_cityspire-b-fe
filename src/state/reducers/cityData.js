@@ -8,9 +8,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  searchValue: '',
-  user: '',
-  isFetching: '',
+  isFetching: false,
   error: '',
   city: {},
   allCitiesAndStates: {},
@@ -20,22 +18,23 @@ const initialState = {
 
 export const cityDataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actions.FETCHING_CITY_START:
-      console.log('fetchCityData start: reducer');
-
+    case FETCHING_CITY_START:
       return {
         ...state,
-        searchValue: action.payload,
         isFetching: true,
       };
-
-    case actions.FETCHING_CITY_SUCCESS:
-      console.log('fetchCityData successful: reducer');
-
+    case FETCHING_CITY_SUCCESS:
       return {
         ...state,
-        searchValue: action.payload,
         isFetching: false,
+        city: action.payload,
+        error: '',
+      };
+    case FETCHING_CITY_ERROR:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload,
       };
     case FETCHING_ALL_START:
       return {
