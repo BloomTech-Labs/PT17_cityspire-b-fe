@@ -3,18 +3,8 @@ import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 
 import cityspireLogo from '../../assets/imgs/cityspireLogo.png';
-import {
-  Row,
-  Col,
-  Menu,
-  Dropdown,
-  Avatar,
-  Button,
-  Image,
-  Space,
-  Divider,
-} from 'antd';
-import { UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import { Row, Col, Menu, Dropdown, Avatar, Button, Image, Space } from 'antd';
+import { UserOutlined, DownOutlined } from '@ant-design/icons';
 
 const HeaderStyle = {
   display: 'flex',

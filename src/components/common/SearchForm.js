@@ -15,13 +15,6 @@ const ColStyle = {
   zIndex: 99999,
 };
 
-const SearchStyle = {
-  width: '55vw',
-  minWidth: '24rem',
-  maxWidth: '80rem',
-  padding: '1rem',
-};
-
 const SearchForm = ({ fetchCityData, fetchAllCities, cities, states }) => {
   const history = useHistory();
 
