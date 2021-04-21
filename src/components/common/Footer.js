@@ -16,9 +16,11 @@ const Footer = () => {
         padding: '1rem',
         width: '100%',
         bottom: '0',
+        fontFamily: 'TrebuchetMS',
+        color: 'teal',
       }}
     >
-      Cityspire ©{date} Created by Labspt15-cityspire-g
+      Cityspire ©{date} Created by Labspt17-Cityspire-B
     </footer>
   );
 };

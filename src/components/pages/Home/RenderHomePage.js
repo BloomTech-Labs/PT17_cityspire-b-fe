@@ -1,38 +1,36 @@
 import React from 'react';
 
 import cities from '../../../assets/imgs/cities.png';
-import citylife from '../../../assets/imgs/citylife.jpg';
-import map from '../../../assets/imgs/map2.jpg';
-import city1 from '../../../assets/imgs/city1.png';
-import city2 from '../../../assets/imgs/city2.png';
-import city3 from '../../../assets/imgs/city3.png';
-import city4 from '../../../assets/imgs/city4.png';
-import city5 from '../../../assets/imgs/city5.png';
 
-import { Layout, Image, Space, Carousel } from 'antd';
+import map from '../../../assets/imgs/map2.jpg';
+import topplaces from '../../../assets/imgs/bestplacestolive.jpg';
+
+import { Layout, Button } from 'antd';
 
 import { Header, Footer, SearchForm } from '../../common';
-import TopCities from '../../common/TopCities';
+
+//Added new dependency for simpler media query implementation
+
+import { useMediaQuery } from 'react-responsive';
 
 const { Content } = Layout;
 
-const contentStyle = {
-  height: '255px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#f0f2f5',
-  margin: '2%',
-};
-
 function RenderHomePage() {
+  // Declared media queries mobile and tablet below.
+
+  const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
+  const isTablet = useMediaQuery({
+    query: '(min-width: 481px)',
+  });
+
   return (
     <Layout className="layout">
       <Header />
-      <Content style={{ height: '25vh', marginBottom: '10rem' }}>
+      <Content style={{ height: '25vh' }}>
         <div
           style={{
             backgroundImage: `url("${cities}")`,
+            backgroundSize: 'cover',
             height: '30vh',
             width: '100%',
             paddingTop: '4vh',
@@ -43,6 +41,7 @@ function RenderHomePage() {
               color: 'white',
               fontSize: '2.4rem',
               textAlign: 'center',
+              fontFamily: 'TrebuchetMS',
             }}
           >
             Search Your Dream City
@@ -51,88 +50,102 @@ function RenderHomePage() {
         </div>
       </Content>
 
-      <Space size="large" align="center">
-        <p
+      <Content style={{ height: '25vh' }}>
+        <div
           style={{
-            display: 'flex',
-            justifyContent: 'center',
-            margin: '1%',
+            backgroundImage: `url("${map}")`,
+            height: '30vh',
+            width: '100%',
+            paddingTop: '4vh',
+            marginTop: '1%',
             textAlign: 'center',
-            fontSize: '2rem',
+            display: 'grid',
+            backgroundSize: 'cover',
           }}
         >
-          Searching for the perfect dream home but don't know where to start?
-          You're in the right place! Let CitySpire lead you to the desires of
-          your heart!
-        </p>
-        <Image
-          preview={false}
-          src={map}
+          {isMobile && (
+            <Button
+              href="https://www.nationsonline.org/oneworld/us_states_maps.htm"
+              style={{
+                fontSize: '1rem',
+                background: 'F6F4F3',
+                borderRadius: '4px',
+                color: '#104573',
+                fontFamily: 'TrebuchetMS',
+                width: '50%',
+                margin: 'auto',
+              }}
+            >
+              Learn more about US States
+            </Button>
+          )}
+          {isTablet && (
+            <Button
+              href="https://www.nationsonline.org/oneworld/us_states_maps.htm"
+              style={{
+                fontSize: '1rem',
+                background: 'F6F4F3',
+                borderRadius: '4px',
+                color: '#104573',
+                fontFamily: 'TrebuchetMS',
+                width: '45%',
+                margin: 'auto',
+              }}
+            >
+              Learn more about US States
+            </Button>
+          )}
+        </div>
+      </Content>
+
+      <Content style={{ height: '25vh' }}>
+        <div
           style={{
+            backgroundImage: `url("${topplaces}")`,
+            height: '30vh',
+            backgroundSize: 'cover',
             width: '100%',
-            height: '100x',
-            marginBottom: '5%',
+            paddingTop: '4vh',
+            marginTop: '2%',
+            textAlign: 'center',
+            display: 'grid',
           }}
-        />{' '}
-      </Space>
-
-      <a
-        href="https://cityspire-states.netlify.app/"
-        style={{
-          textAlign: 'center',
-          fontSize: '2rem',
-          background: 'navy',
-          color: 'white',
-          width: '30%',
-          margin: 'auto 35%',
-          marginBottom: '2%',
-        }}
-      >
-        Learn more about US States
-      </a>
-
-      <Carousel
-        autoplay
-        style={{
-          marginTop: '-2rem',
-        }}
-      >
-        <div>
-          <h3 style={contentStyle}>
-            {' '}
-            <Image className="Carousel" preview={false} src={city1} />
-          </h3>
+        >
+          {isMobile && (
+            <Button
+              href="https://www.today.com/money/best-places-live-2020-2021-according-u-s-news-world-t193899"
+              style={{
+                fontSize: '1rem',
+                background: 'F6F4F3',
+                borderRadius: '4px',
+                color: '#104573',
+                fontFamily: 'TrebuchetMS',
+                width: '50%',
+                margin: 'auto',
+              }}
+            >
+              Top cities in 2021
+            </Button>
+          )}
+          {isTablet && (
+            <Button
+              href="https://www.today.com/money/best-places-live-2020-2021-according-u-s-news-world-t193899"
+              style={{
+                fontSize: '1rem',
+                background: 'F6F4F3',
+                borderRadius: '4px',
+                color: '#104573',
+                fontFamily: 'TrebuchetMS',
+                width: '45%',
+                margin: 'auto',
+              }}
+            >
+              Top cities in 2021
+            </Button>
+          )}
         </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image className="Carousel" preview={false} src={city2} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image className="Carousel" preview={false} src={city3} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image className="Carousel" preview={false} src={city4} />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image className="Carousel" preview={false} src={city5} />
-          </h3>
-        </div>
-      </Carousel>
-
-      <Image
-        preview={false}
-        src={citylife}
-        style={{ width: '100%', height: '100px' }}
-      />
-
-      <TopCities />
-      <Footer />
+        <Footer />
+      </Content>
     </Layout>
   );
 }

@@ -3,18 +3,8 @@ import { useOktaAuth } from '@okta/okta-react';
 import { useHistory } from 'react-router-dom';
 
 import cityspireLogo from '../../assets/imgs/cityspireLogo.png';
-import {
-  Row,
-  Col,
-  Menu,
-  Dropdown,
-  Avatar,
-  Button,
-  Image,
-  Space,
-  Divider,
-} from 'antd';
-import { UserOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
+import { Row, Col, Menu, Dropdown, Avatar, Button, Image, Space } from 'antd';
+import { UserOutlined, DownOutlined } from '@ant-design/icons';
 
 const HeaderStyle = {
   display: 'flex',
@@ -23,6 +13,8 @@ const HeaderStyle = {
   padding: '1.25rem 5vw',
   borderBottom: 'solid thin #eee',
   backgroundColor: 'white',
+  fontFamily: 'TrebuchetMS',
+  color: 'teal',
 };
 
 const Header = () => {
@@ -62,10 +54,18 @@ const Header = () => {
 
   const menu = (
     <Menu>
-      <Menu.Item key="0" onClick={() => handleDashboardClick(userInfo.sub)}>
+      <Menu.Item
+        key="0"
+        onClick={() => handleDashboardClick(userInfo.sub)}
+        style={{ color: 'teal' }}
+      >
         Dashboard
       </Menu.Item>
-      <Menu.Item key="1" onClick={() => handlePinnedCityClick(userInfo.sub)}>
+      <Menu.Item
+        key="1"
+        onClick={() => handlePinnedCityClick(userInfo.sub)}
+        style={{ color: 'teal' }}
+      >
         Pinned Cities
       </Menu.Item>
     </Menu>
@@ -90,20 +90,25 @@ const Header = () => {
               <Space
                 size="small"
                 onClick={e => e.preventDefault()}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', color: 'teal' }}
               >
                 <Avatar size="small" icon={<UserOutlined />} />
                 {userInfo ? userInfo.name : 'loading...'} <DownOutlined />
               </Space>
             </Dropdown>
-            <Divider type="vertical" />
-            <a href="/" style={{ color: 'grey' }}>
+            {/* <Divider type="vertical" /> */}
+            {/* <a href="/" style={{ color: 'grey' }}>
               <SearchOutlined
                 style={{ cursor: 'pointer', fontSize: '1.15rem' }}
               />
-            </a>
-            <Divider type="vertical" />
-            <Button onClick={() => authService.logout()}>Logout</Button>
+            </a> */}
+            {/* <Divider type="vertical" /> */}
+            <Button
+              onClick={() => authService.logout()}
+              style={{ color: 'teal' }}
+            >
+              Logout
+            </Button>
           </Space>
         </Row>
       </Col>

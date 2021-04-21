@@ -75,7 +75,7 @@ const CitySearchResultsContainer = ({
             isSaved={isSaved}
             handleOnCityClick={handleOnCityClick}
             city={cityAndState.city}
-            state={cityAndState.state}
+            state={cityAndState.city}
           />
           <Footer />
         </div>

@@ -4,11 +4,15 @@ For steps on how to work with this repository [please see here](https://docs.lab
 
 # cityspire-fe
 
-You can find the deployed project at [https://b.cityspire.dev/](https://b.cityspire.dev/).
-
-The "Learn more about US States" link on the home page links to a deployed netlify project [CitySpire: US States](https://cityspire-states.netlify.app/). The GitHub project for this is: [US-States](https://github.com/BritneyParkerson/US-States) in case anyone wants to continue using it.
+You can find the deployed project at [b.cityspire.dev](https://b.cityspire.dev).
 
 ## Contributors
+
+|                                         [Kyla Oyamot](https://github.com/Koyamot)                                          |                                       [Angelyn Liem](https://github.com/angelynaliem)                                        |
+| :------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: |
+|       [<img src="https://avatars.githubusercontent.com/u/47949273?v=4" width = "200" />](https://github.com/Koyamot)       |      [<img src="https://avatars.githubusercontent.com/u/5790717?v=4" width = "200" />](https://github.com/angelynaliem)      |  |
+|                    [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Koyamot)                    |                  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/angelynaliem)                   |  |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/kylaoyamot) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/angelynaliem) |  |
 
 |                                                          [Shomari Roberts](https://github.com/slroberts)                                                          |                                                         [Britney Parkerson](https://github.com/BritneyParkerson)                                                         |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -39,7 +43,7 @@ The "Learn more about US States" link on the home page links to a deployed netli
 
 #### Front end deployed to `AWS Amplify`
 
-#### [Back end](https://github.com/Lambda-School-Labs/LabsPT15-cityspire-g-be) built using:
+#### [Back end](https://github.com/Lambda-School-Labs/LabsPT17-cityspire-b-be) built using:
 
 - NodeJS
 - Express
@@ -49,7 +53,7 @@ The "Learn more about US States" link on the home page links to a deployed netli
 
 #### Documentation
 
-See [Backend Documentation](https://documenter.getpostman.com/view/12494179/TW74jkQq) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/LabsPT17-cityspire-b-be) for details on the backend of our project in README.
 
 ## Other Scripts
 

@@ -15,6 +15,8 @@ import { UserDashboardPage } from './pages/UserDashboard';
 import { PinnedCityPage } from './pages/PinnedCity';
 import { PinnedCitiesPage } from './pages/PinnedCities';
 
+import { connect } from 'react-redux';
+
 const App = () => {
   // The reason to declare App this way is so that we can use any helper functions we'd need for business logic, in our case auth.
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
@@ -65,4 +67,10 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    searchValue: state.searchValue,
+  };
+};
+
+export default connect(mapStateToProps, {})(App);
