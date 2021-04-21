@@ -47,6 +47,7 @@ const SearchForm = ({ fetchCityData, fetchAllCities, cities, states }) => {
 
   const onSubmit = () => {
     fetchCityData(cityInfo);
+    localStorage.setItem('cityAndState', JSON.stringify(cityInfo));
     history.push(`/${stateValue}/${cityValue}`);
     setCityValue('');
   };
