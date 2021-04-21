@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchCityData } from '../../state/actions';
+import { fetchCityData, fetchAllCities } from '../../state/actions';
+import stateAbv from './ListOfStates';
 import { useHistory } from 'react-router-dom';
-import { Row, Col, Input } from 'antd';
-import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Row, Col, Select, AutoComplete, Button } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+
+const { Option } = Select;
 
 const ColStyle = {
   display: 'flex',
@@ -20,69 +22,86 @@ const SearchStyle = {
   padding: '1rem',
 };
 
-const SearchForm = ({ fetchCityData }) => {
-  const { push } = useHistory();
+const SearchForm = ({ fetchCityData, fetchAllCities, cities, states }) => {
+  const history = useHistory();
 
-  const [searchValue, setSearchValue] = useState('');
+  const [cityValue, setCityValue] = useState('');
+  const [stateValue, setStateValue] = useState('');
 
-  // Split search value right by the comma
-  const splitSearchValue = searchValue.toLowerCase().split(', ');
+  useEffect(() => {
+    fetchAllCities();
+  }, [fetchAllCities]);
 
-  // Set the split value to city and state
-  const cityAndState = {
-    city: splitSearchValue[0],
-    state: splitSearchValue[1],
+  let uniqueCities = [];
+  cities.forEach(c => {
+    if (!uniqueCities.includes(c)) {
+      uniqueCities.push(c);
+    }
+  });
+
+  const handleChange = value => {
+    setStateValue(value);
   };
 
-  const { Search } = Input;
+  const inputChange = data => {
+    setCityValue(data);
+  };
 
-  const handleChange = e => {
-    setSearchValue(e.target.value);
+  const cityInfo = {
+    city: cityValue,
+    state: stateValue,
   };
 
   const onSubmit = () => {
-    localStorage.setItem('cityAndState', JSON.stringify(cityAndState));
-    fetchCityData(cityAndState);
-    push(`/${cityAndState.state}/${cityAndState.city}`);
-    setSearchValue('');
+    fetchCityData(cityInfo);
+    history.push(`/${stateValue}/${cityValue}`);
+    setCityValue('');
   };
 
-  const menu = (
-    <Menu>
-      <Menu.Item key="0">
-        <a href="">San Francisco, CA</a>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <a href="/${cityAndState.state}/${cityAndState.city}">Honolulu, HI</a>
-      </Menu.Item>
-    </Menu>
-  );
+  const options = uniqueCities.map(c => {
+    return {
+      value: `${c}`,
+    };
+  });
+
+  const children = stateAbv.map(states => {
+    return <Option key={states}>{states}</Option>;
+  });
 
   return (
     <Row>
       <Col span={12} offset={6} style={ColStyle}>
-        <div>
-          <Dropdown overlay={menu} trigger={['click']}>
-            <a
-              className="ant-dropdown-link"
-              onClick={
-                e => e.preventDefault()
-                // onSubmit()
-              }
-              style={{
-                backgroundColor: '#FFF',
-                padding: '4px 16px',
-                color: '#000',
-                borderRadius: '4px',
-              }}
-            >
-              Search a city and state <DownOutlined />
-            </a>
-          </Dropdown>
-        </div>
+        <AutoComplete
+          style={{
+            width: 200,
+            marginRight: 8,
+          }}
+          onChange={inputChange}
+          options={options}
+          placeholder="Type in your city"
+          filterOption={(inputValue, option) =>
+            option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+          }
+        />
+        <Select
+          defaultValue="State"
+          onChange={handleChange}
+          style={{ width: 80, marginRight: 8 }}
+        >
+          {children}
+        </Select>
+        <Button icon={<SearchOutlined />} onClick={onSubmit} />
       </Col>
     </Row>
   );
 };
 
-export default connect(null, { fetchCityData })(SearchForm);
+const mapStateToProps = state => {
+  return {
+    cities: state.cityData.allCities,
+    states: state.cityData.allStates,
+  };
+};
+export default connect(mapStateToProps, { fetchCityData, fetchAllCities })(
+  SearchForm
+);

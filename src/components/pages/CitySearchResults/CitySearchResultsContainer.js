@@ -16,7 +16,6 @@ const spinStyle = {
 
 const CitySearchResultsContainer = ({
   cityData,
-  fetchCityData,
   fetchSavedCity,
   pinCity,
   isFetching,
@@ -27,10 +26,6 @@ const CitySearchResultsContainer = ({
   const [cityAndState, setCityAndState] = useState(
     localStorage.getItem('cityAndState')
   );
-
-  useEffect(() => {
-    fetchCityData(cityAndState);
-  }, [fetchCityData, cityAndState]);
 
   const savedNotification = () => {
     notification.open({
@@ -65,7 +60,6 @@ const CitySearchResultsContainer = ({
     setCityAndState(localStorage.getItem('cityAndState'));
     push(`/${cityAndState.state}/${cityAndState.city}`);
   };
-  console.log('city info', cityAndState);
   return (
     <>
       {isFetching ? (
