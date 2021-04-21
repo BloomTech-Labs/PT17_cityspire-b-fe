@@ -10,6 +10,8 @@ import {
 const initialState = {
   isFetching: false,
   savedCities: [],
+  cityName: [],
+  stateName: [],
   isSaved: false,
   error: null,
 };
@@ -44,19 +46,19 @@ describe('cityOperations reducer', () => {
       })
     ).toEqual({
       ...initialState,
-      savedCities: [
-        {
-          id: 2,
-          city: 'Olathe',
-          state: 'Kansas',
-          rental_price: 1200,
-          crime: 'low',
-          pollution: 'low',
-          walkability: 20,
-          livability: 95,
-          profile_id: '00ulthapbErVUwVJy4x6',
-        },
-      ],
+      savedCities: {
+        id: 2,
+        city: 'Olathe',
+        state: 'Kansas',
+        rental_price: 1200,
+        crime: 'low',
+        pollution: 'low',
+        walkability: 20,
+        livability: 95,
+        profile_id: '00ulthapbErVUwVJy4x6',
+      },
+      cityName: 'Olathe',
+      stateName: 'Kansas',
     });
   });
   it('should handle FETCHING_CITIES_ERROR', () => {
@@ -76,16 +78,18 @@ describe('cityOperations reducer', () => {
     expect(
       cityOperationsReducer(initialState, {
         type: PIN_CITY,
-        payload: {
-          city: 'Olathe',
-          state: 'Kansas',
-          rental_price: 1200,
-          crime: 'low',
-          pollution: 'low',
-          walkability: 20,
-          livability: 95,
-          profile_id: '00ulthapbErVUwVJy4x6',
-        },
+        payload: [
+          {
+            city: 'Olathe',
+            state: 'Kansas',
+            rental_price: 1200,
+            crime: 'low',
+            pollution: 'low',
+            walkability: 20,
+            livability: 95,
+            profile_id: '00ulthapbErVUwVJy4x6',
+          },
+        ],
       })
     ).toEqual({
       ...initialState,

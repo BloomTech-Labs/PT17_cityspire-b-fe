@@ -9,6 +9,8 @@ import {
 const initialState = {
   isFetching: false,
   savedCities: [],
+  cityName: [],
+  stateName: [],
   isSaved: false,
   error: null,
 };
@@ -17,7 +19,7 @@ export const cityOperationsReducer = (state = initialState, action) => {
     case PIN_CITY:
       return {
         ...state,
-        savedCities: [action.payload],
+        savedCities: action.payload,
         isSaved: true,
       };
     case UNPIN_CITY:
@@ -38,7 +40,9 @@ export const cityOperationsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        savedCities: [action.payload],
+        savedCities: action.payload,
+        cityName: action.payload.city,
+        stateName: action.payload.state,
       };
     case FETCHING_CITIES_ERROR:
       return {

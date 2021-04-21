@@ -6,18 +6,18 @@ export const FETCHING_CITIES_START = 'FETCHING_CITY_START';
 export const FETCHING_CITIES_SUCCESS = 'FETCHING_CITY_SUCCESS';
 export const FETCHING_CITIES_ERROR = 'FETCHING_CITY_ERROR';
 
-const url = 'https://labspt15-cityspire-g.herokuapp.com';
+const url = 'https://pt17-cityspire-b.herokuapp.com/';
 
 export const fetchSavedCity = profileId => {
   return async dispatch => {
     dispatch({ type: FETCHING_CITIES_START });
 
     try {
-      const res = await axios.get(`${url}/profile/${profileId}/city`);
+      const res = await axios.get(`${url}favorites/${profileId}`);
 
       dispatch({
         type: FETCHING_CITIES_SUCCESS,
-        payload: res.data,
+        payload: res.data.favCities,
       });
     } catch (err) {
       dispatch({ type: FETCHING_CITIES_ERROR, payload: err.message });
@@ -29,7 +29,7 @@ export const pinCity = (profileId, cityData) => {
   return async dispatch => {
     try {
       const res = await axios.post(
-        `${url}/profile/${profileId}/city`,
+        `${url}/favorites/${profileId}/favorites`,
         cityData
       );
 
