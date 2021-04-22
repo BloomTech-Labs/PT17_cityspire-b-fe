@@ -35,6 +35,12 @@ const topCities = [
     latitude: 42.3243932353924,
     longitude: -71.01447454188019,
   },
+  {
+    city: 'Tampa',
+    state: 'FL',
+    latitude: 82.4572,
+    longitude: 27.9506,
+  },
 ];
 
 export default topCities;
