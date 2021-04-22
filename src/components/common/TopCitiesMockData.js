@@ -41,6 +41,12 @@ const topCities = [
     latitude: 82.4572,
     longitude: 27.9506,
   },
+  {
+    city: 'Atlanta',
+    state: 'GA',
+    latitude: 84.3880,
+    longitude: 33.7490,
+  }
 ];
 
 export default topCities;
