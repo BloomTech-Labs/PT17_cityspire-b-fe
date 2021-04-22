@@ -20,7 +20,7 @@ const Footer = () => {
         color: 'teal',
       }}
     >
-      Cityspire ©{date} Created by LabsPT17-Cityspire-B
+      Cityspire ©{date} Created by Labspt17-Cityspire-B
     </footer>
   );
 };
