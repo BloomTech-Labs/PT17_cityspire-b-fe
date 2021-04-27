@@ -46,6 +46,12 @@ const topCities = [
     state: 'GA',
     latitude: 84.3880,
     longitude: 33.7490,
+  },
+  {
+    city: 'Honolulu',
+    state: 'HI',
+    latitude: 157.8583,
+    longitude: 21.3069,
   }
 ];
 
